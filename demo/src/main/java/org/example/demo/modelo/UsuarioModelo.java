@@ -8,12 +8,12 @@ public class UsuarioModelo {
 
     public void registrarIntento(boolean acierto, int longitudPalabra, double tiempoMinutos) {
         if (acierto) {
-            this.numeroAciertos++;
-            this.caracteresTotalesCorrectos += longitudPalabra;
+            numeroAciertos++;
+            caracteresTotalesCorrectos += longitudPalabra;
         } else {
-            this.numeroFallos++;
+            numeroFallos++;
         }
-        this.tiempoTotalMinutos += tiempoMinutos;
+        tiempoTotalMinutos += tiempoMinutos;
     }
 
     public int getNumeroAciertos() { return numeroAciertos; }
