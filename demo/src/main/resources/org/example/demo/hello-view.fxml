@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.paint.Color?>
+
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.demo.controlador.ControladorJuego"
+            styleClass="main-container"
+            stylesheets="@typeracer-aura.css">
+
+    <padding>
+        <Insets bottom="40.0" left="50.0" right="50.0" top="40.0"/>
+    </padding>
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="header-box">
+            <padding>
+                <Insets bottom="12.0" left="20.0" right="20.0" top="12.0"/>
+            </padding>
+
+            <Label text="TYPERACER" styleClass="title-label">
+                <font>
+                    <Font name="System Bold" size="22.0"/>
+                </font>
+                <effect>
+                    <DropShadow color="#00e5ff" radius="15.0" spread="0.3">
+                        <input>
+                            <Glow level="0.4"/>
+                        </input>
+                    </DropShadow>
+                </effect>
+            </Label>
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <Label fx:id="labelEstadisticas"
+                   text="✓ Aciertos: 0  │  ✗ Fallos: 0  │  ⏱ WPM: 0.0"
+                   styleClass="stats-label">
+                <font>
+                    <Font name="System Bold" size="14.0"/>
+                </font>
+                <effect>
+                    <DropShadow color="#00e5ff55" radius="12.0" spread="0.2"/>
+                </effect>
+            </Label>
+        </HBox>
+    </top>
+
+
+    <center>
+        <VBox alignment="CENTER" spacing="40.0" styleClass="game-area">
+            <padding>
+                <Insets top="50.0" bottom="50.0"/>
+            </padding>
+
+            <Label text="Escribe la palabra y pulsa ENTER" styleClass="instruction-label">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Label>
+
+            <StackPane>
+                <Label fx:id="labelPalabra" text="Cargando..." styleClass="word-label">
+                    <font>
+                        <Font name="System Bold" size="72.0"/>
+                    </font>
+                    <effect>
+                        <DropShadow color="#00e5ff" radius="25.0" spread="0.4" offsetY="0">
+                            <input>
+                                <DropShadow color="#bf00ff" radius="40.0" spread="0.2" offsetY="5">
+                                    <input>
+                                        <Glow level="0.3">
+                                            <input>
+                                                <Bloom threshold="0.7"/>
+                                            </input>
+                                        </Glow>
+                                    </input>
+                                </DropShadow>
+                            </input>
+                        </DropShadow>
+                    </effect>
+                </Label>
+            </StackPane>
+
+
+            <TextField fx:id="inputTexto"
+                       promptText="Escribe aquí..."
+                       alignment="CENTER"
+                       maxWidth="400.0"
+                       prefWidth="400.0"
+                       styleClass="input-field">
+                <font>
+                    <Font name="System Bold" size="24.0"/>
+                </font>
+                <effect>
+                    <DropShadow color="#00e5ff44" radius="15.0" spread="0.1"/>
+                </effect>
+            </TextField>
+
+            <Label text="Presiona ESC para reiniciar"
+                   styleClass="instruction-label"
+                   style="-fx-text-fill: rgba(255,255,255,0.2); -fx-font-size: 12px;">
+            </Label>
+        </VBox>
+    </center>
+
+
+    <bottom>
+        <HBox alignment="CENTER" spacing="20.0">
+            <padding>
+                <Insets top="20.0"/>
+            </padding>
+        </HBox>
+    </bottom>
+
+</BorderPane>
